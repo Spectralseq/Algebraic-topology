@@ -1,0 +1,186 @@
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks,linkcolor=blue,hyperfootnotes=false]{hyperref}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{textcomp}
+\usepackage{extpfeil}
+\usepackage{geometry}
+\usepackage{wasysym}
+\usepackage{extarrows}
+\usepackage[bottom]{footmisc}
+\usepackage{enumitem}
+\usepackage{textgreek,bm,upgreek,mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{epigraph}
+\usepackage[many]{tcolorbox}
+\usepackage[english]{babel}
+\usepackage{mathdesign}
+\usepackage{setspace}
+\usepackage{microtype} 
+\usepackage[framemethod=tikz]{mdframed} 
+\usepackage[tikz]{bclogo}
+\usepackage{lipsum}
+\usepackage{ulem}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{epigraph}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{showkeys}
+\usepackage{fancyhdr}
+
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\linespread{1.05}
+
+\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+\pagestyle{fancy}
+\setlength{\headheight}{15.0pt}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\bf\nouppercase{\rightmark}}
+\fancyhead[LO]{\bf\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\def\sub{\subseteq}
+\def\sups{\supseteq}
+\def\emp{\varnothing}
+\def\GL{\mathrm{GL}}
+\def\End{\mathrm{End}}
+\def\Hom{\mathrm{Hom}}
+\def\Aut{\mathrm{Aut}}
+\def\det{\mathrm{det}}
+\def\Ext{\mathrm{Ext}}
+\def\tr{\mathrm{tr}}
+\def\O{\mathrm{O}}
+\def\ker{\mathrm{ker}\,}
+\def\coker{\mathrm{coker}\,}
+\def\im{\mathrm{im}\,}
+\def\coim{\mathrm{coim}\,}
+\def\rank{\mathrm{rank}\,}
+\def\char{\mathrm{char}\,}
+\def\supp{\mathrm{supp}\,}
+\def\sign{\mathrm{sign}}
+\def\Int{\mathrm{Int}}
+\def\id{\mathrm{id}}
+\def\pr{\mathrm{pr}\,}
+\def\St{\mathrm{St}\,}
+\def\st{\mathrm{st}\,}
+\def\C{\mathbb{C}}
+\def\K{\mathbb{K}}
+\def\F{\mathbb{F}}
+\def\R{\mathbb{R}}
+\def\B{\mathbb{B}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\T{\mathbb{T}}
+\def\H{\mathbb{H}}
+\def\RP{\mathbb{R}\mathrm{P}}
+\def\CP{\mathbb{C}\mathrm{P}}
+\def\P{\mathbb{P}}
+\def\eps{\varepsilon}
+\def\And{\quad\textit{and}\quad}
+\def\for{\quad\textit{for}\quad}
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatletter
+\let\save@mathaccent\mathaccent
+\newcommand*\if@single[3]{%
+	\setbox0\hbox{${\mathaccent"0362{#1}}^H$}%
+	\setbox2\hbox{${\mathaccent"0362{\kern0pt#1}}^H$}%
+	\ifdim\ht0=\ht2 #3\else #2\fi
+}
+%The bar will be moved to the right by a half of \macc@kerna, which is computed by amsmath:
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+%If there's a superscript following the bar, then no negative kern may follow the bar;
+%an additional {} makes sure that the superscript is high enough in this case:
+\newcommand*\widebar[1]{\@ifnextchar^{{\wide@bar{#1}{0}}}{\wide@bar{#1}{1}}}
+%Use a separate algorithm for single symbols:
+\newcommand*\wide@bar[2]{\if@single{#1}{\wide@bar@{#1}{#2}{1}}{\wide@bar@{#1}{#2}{2}}}
+\newcommand*\wide@bar@[3]{%
+	\begingroup
+	\def\mathaccent##1##2{%
+		%Enable nesting of accents:
+		\let\mathaccent\save@mathaccent
+		%If there's more than a single symbol, use the first character instead (see below):
+		\if#32 \let\macc@nucleus\first@char \fi
+		%Determine the italic correction:
+		\setbox\z@\hbox{$\macc@style{\macc@nucleus}_{}$}%
+		\setbox\tw@\hbox{$\macc@style{\macc@nucleus}{}_{}$}%
+		\dimen@\wd\tw@
+		\advance\dimen@-\wd\z@
+		%Now \dimen@ is the italic correction of the symbol.
+		\divide\dimen@ 3
+		\@tempdima\wd\tw@
+		\advance\@tempdima-\scriptspace
+		%Now \@tempdima is the width of the symbol.
+		\divide\@tempdima 10
+		\advance\dimen@-\@tempdima
+		%Now \dimen@ = (italic correction / 3) - (Breite / 10)
+		\ifdim\dimen@>\z@ \dimen@0pt\fi
+		%The bar will be shortened in the case \dimen@<0 !
+		\rel@kern{0.6}\kern-\dimen@
+		\if#31
+		\overline{\rel@kern{-0.6}\kern\dimen@\macc@nucleus\rel@kern{0.4}\kern\dimen@}%
+		\advance\dimen@0.4\dimexpr\macc@kerna
+		%Place the combined final kern (-\dimen@) if it is >0 or if a superscript follows:
+		\let\final@kern#2%
+		\ifdim\dimen@<\z@ \let\final@kern1\fi
+		\if\final@kern1 \kern-\dimen@\fi
+		\else
+		\overline{\rel@kern{-0.6}\kern\dimen@#1}%
+		\fi
+	}%
+	\macc@depth\@ne
+	\let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+	\mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+	\macc@set@skewchar\relax
+	\let\mathaccentV\macc@nested@a
+	%The following initialises \macc@kerna and calls \mathaccent:
+	\if#31
+	\macc@nested@a\relax111{#1}%
+	\else
+	%If the argument consists of more than one symbol, and if the first token is
+	%a letter, use that letter for the computations:
+	\def\gobble@till@marker##1\endmarker{}%
+	\futurelet\first@char\gobble@till@marker#1\endmarker
+	\ifcat\noexpand\first@char A\else
+	\def\first@char{}%
+	\fi
+	\macc@nested@a\relax111{\first@char}%
+	\fi
+	\endgroup
+}
+\makeatother
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\makeatletter
+
+\makeatletter
+\newcommand{\colim@}[2]{%
+	\vtop{\m@th\ialign{##\cr
+			\hfil$#1\operator@font colim$\hfil\cr
+			\noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+			\noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\renewcommand{\varprojlim}{%
+	\mathop{\mathpalette\varlim@{\leftarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\renewcommand{\varinjlim}{%
+	\mathop{\mathpalette\varlim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
+
+\def\llim{\varprojlim\limits}
+\def\rlim{\varinjlim\limits}

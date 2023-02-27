@@ -1,0 +1,29 @@
+\documentclass[11pt,A4 paper]{book}
+\include{documentpre}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}[theorem]{Example}
+
+\makeatother
+\title{Algebraic Topology}
+\begin{document}
+\maketitle
+\tableofcontents
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+
+\iffalse
+\include{chapter/general-topo}
+\include{chapter/jbq}
+
+\include{chapter/Surface}
+\include{chapter/homology}
+\include{chapter/cohomology}
+\fi\include{chapter/CW}
+\end{document}
