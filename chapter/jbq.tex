@@ -3,10 +3,11 @@ Algebraic topology assigns discrete algebraic invariants to topological spaces a
 In our context, a homotopy $h:p\simeq q$ between two maps $p,q:X\to Y$ is a continuous map $h:X\times I\to Y$ such that $h(x,0)=p(x)$ and $h(x,1)=q(x)$, where $I$ is the unit interval $[0,1]$. We usually want $p_*=q_*$ if $p\simeq q$, or some invariance property close to this.\par
 In oversimplified outline, the way homotopy theory works is roughly this:
 \begin{itemize}
-\item[$(1)$] One defines some algebraic construction $A$ and proves that it is suitably homotopy invariant.
-\item[$(2)$] One computes $A$ on suitable spaces and maps.
-\item[$(3)$] One takes the problem to be solved and deforms it to the point that step $2$ can be used to solve it.
+\item One defines some algebraic construction $A$ and proves that it is suitably homotopy invariant.
+\item One computes $A$ on suitable spaces and maps.
+\item One takes the problem to be solved and deforms it to the point that step $2$ can be used to solve it.
 \end{itemize}
+
 \section{The fundamental group}
 \subsection{Definitions of fundamental group}
 \begin{definition}
@@ -15,8 +16,11 @@ Suppose $X$ and $Y$ are topological spaces and $f_0,f_1:X\to Y$ are two continuo
 such that
 \[H(x,0)=f_0(x),\quad H(x,1)=f_1(x)\]
 \end{definition}
+
 We write $H:f_0\simeq f_1$ to indicate $H$ is a homotopy from $f_0$ to $f_1$, and we write $f_0\simeq f_1$ to indicate there exists such an $H$.\par
+
 A homotopy defines a one-parameter family of continuous maps $H_t:X\to Y$ for $0\leq t\leq1$ by $H_t=H(x,t)$.
+
 \begin{proposition}
 Let $X$ and $Y$ denote two topological spaces. Then homotopy is an equivalence relation on the space $C(X,Y)$ of all continuous maps from $X$ to $Y$.
 \end{proposition}
@@ -28,7 +32,9 @@ G(x,2t-1)&1/2\leq t\leq 1.
 \end{cases}\]
 Since $F$ and $G$ agree on their overlap, the pasting lemma implies that $H$ is continuous. Since $H(x,0)=f$ and $H(x,1)=h$, this shows that $f\simeq h$.
 \end{proof}
+
 We now show that composition of equivalence classes makes sense.
+
 \begin{proposition}
 Suppose $f_0,f_1:X\to Y$ and $g_0,g_1:Y\to Z$ are continuous functions with $f_0\simeq f_1$ and $g_0\simeq g_1$. Then $g_0\circ f_0\simeq g_1\circ f_1$, that is
 \[[f_0]=[f_1]\text{ and }[g_0]=[g_1]\Rightarrow [g_0\circ f_0]=[g_1\circ f_1].\]
@@ -42,15 +48,18 @@ Then $H$ is continuous and since
 \[H(s,0)=G(f_0(s),0)=g_0(f_0(s)),\quad H(s,1)=G(f_0(s),1)=g_1(f_0(s)).\]
 This gives the first equality, the other can be done similarly.
 \end{proof}
+
 Let $X$ and $Y$ be topological spaces, and $A\sub X$ an arbitrary subset. A homotopy $H$ between maps $f,g:X\to Y$ is said to be \textbf{stationary on $\bm{A}$} if
 \[H(x,t)=f(x),\quad\forall x\in A,t\in I.\]
 In other words, for each $t$, the map $H_t$ agrees with $f$ on $A$. If there exists such a homotopy $H$, we say that $f$ and $g$ are homotopic relative to $A$, and $H$ is also called \textbf{a homotopy relative to $\bm{A}$}. Notice that this implies $g|_A=H|_A=f|_A$, so for two maps to be homotopic relative to $A$ they must first of all agree on $A$. Sometimes, for emphasis, when two maps are homotopic but the homotopy is not assumed to be
-stationary on any particular subspace, we say they are \textbf{freely homotopic}, and the homotopy is a \textbf{free homotopy}.\par
+stationary on any particular subspace, we say they are \textbf{freely homotopic}, and the homotopy is a \textbf{free homotopy}.
+
 \begin{definition}
 Let $X$ be a space, two paths $f,g:I\to X$ from $p$ to $q$ are equivalent if they are homotopic through paths from $p$ to $q$. That is, there exist a homotopy $H:I\times I\to X$ such that
 \[H(s,0)=f(s),\quad H(s,1)=g(s),\quad H(0,t)=p,\text{ and}\quad H(1,t)=q.\]
 for all $s,t\in I$.
 \end{definition}
+
 Note the additional condition we impose: the end points of two paths should be fixed by our homotopy, This is to avoid some trivial occasions, and such kind of homotopy is sometimes called \textbf{path homotopy}. Write $[f]$ for the equivalence class of $f$. We say that $f$ is a \textbf{loop} if $f(0)=f(1)$. If $f$ is a loop whose initial and terminal point is $p\in X$, we say that $f$ is \textbf{based at $\bm{p}$}, and we call $p$ the base point of $f$. The set of all loops in $X$ based at $p$ is denoted by $\Omega(X,p)$. The constant loop $c_p\in\Omega(X,p)$ is the map $c_p(s)=p$. A \textbf{null-homotopic loop} is one that is path-homotopic to a constant loop, not just homotopic.\par 
 Define $\pi_1(X,p)$ to be the set of equivalence classes of loops that start and end at $p$. And define the product operation on paths: For paths $f,g:I\to X$ such that $f(1)=g(0)$, define $f\ast g$ as
 \[(f\ast g)(s)=\begin{cases}
@@ -215,10 +224,11 @@ So suppose $f$ is any loop based at $p$. By the Lebesgue number lemma there is a
 For each $k=1,\cdots,n-1$, the point $f(k/n)$ lies in $U_k\cap U_{k+1}$. Therefore, there is some $x_k\in\mathcal{X}$ that lies in the same component of $U_k\cap U_{k+1}$ as $f(k/n)$. Choose a path $g_k$ in $U_k\cap U_{k+1}$ from $x_k$ to $f(k/n)$, and set $\widetilde{f}_k=g_{k-1}\ast f_k\ast \bar{g}_k$ (taking $x_k=p$ and $g_k$ to be the constant path $c_p$ when $k=0$ or $n$). It is immediate that $[f]=[f_1]\ast\cdots\ast[f_n]$, because all the $g_k's$ cancel out. But for each $k$, $\widetilde{f}_k$ is a path in $U_k$ from $x_{k-1}$ to $x_k$, and since $U_k$ is simply connected, $\widetilde{f}_k$ is path-homotopic to $h^{U_k}_{x_{k-1},x_k}$. This shows that $f$ is path-homotopic to a special loop and completes the proof.
 \begin{figure}[htbp]
 \centering
-\includegraphics{fandamental-group-of-manifold}
+\includegraphics{pictures/fandamental-group-of-manifold}
 \caption{Proof that a manifold has countable fundamental group.}
 \end{figure}
 \end{proof}
+
 \subsection{Homotopy invariance}
 \begin{proposition}
 The path homotopy relation is preserved by composition with continuous maps. That is, if $f_0$, $f_1:I\to X$ are path-homotopic and $\varphi:X\to Y$ is continuous, then $\varphi\circ f_0$ and $\varphi\circ f_1$ are path-homotopic.
@@ -356,7 +366,6 @@ Similarly, the homotopy $\varphi\circ\psi\simeq id_Y$ leads to the diagram
 from which it follows that $\varphi_*\circ\psi_*$ is an isomorphism. This means in particular that $\psi_*$ is injective; since we already showed that it
 is surjective, it is an isomorphism. Therefore, going back to $(\ref{homotopy Inva of pi_1-2})$, we conclude that $\varphi_*=(\psi_*)^{-1}\circ\varPhi_h$ is also an isomorphism.
 \end{proof}
-\subsection{Homotopy Equivalence and Deformation Retraction}
 Let $X$ and $Y$ be topological spaces, and let $f:X\to Y$ be a continuous map.
 Define the \textbf{mapping cylinder} $Z_f$ of $f$ to be the adjunction space $Y\cup_\varphi(X\times I)$, where the attaching map $\varphi:X\times\{0\}\to Y$ is given by $\varphi(x,0)=f(x)$.\par
 The subspace $X\times\{1\}\sub Y\amalg(X\times I)$ is a saturated closed subset homeomorphic to $X$. The restriction of the quotient map $q\to Y\amalg(X\times I)\to Z_f$ to this subset is thus a one-to-one quotient map, so its image $\widetilde{X}$ is also homeomorphic to $X$. Similarly, $\widetilde{Y}=q(Y)$ is homeomorphic to $Y$.
@@ -387,7 +396,7 @@ Inserting $t=0$ and $t=1$ into the definitions of $H_2$ and $H_3$, we find that 
 Because homotopy is transitive, the three homotopies $H_1$, $H_2$, $H_3$ yield $\id_{Z_f}\simeq A\simeq B\simeq C$. Since $G(x,1)=x$, we find that $C[x,1]=[x,1]$, so $C$ is a retraction onto $\widetilde{X}$, which shows that $\widetilde{X}$ is a deformation retract of $Z_f$.
 \begin{figure}[htbp]
 \centering
-\includegraphics{retraction}
+\includegraphics{pictures/retraction}
 \caption{Homotopies of the mapping cylinder.}
 \end{figure}
 \end{proof}
@@ -749,7 +758,7 @@ Suppose $u$ is a loop in $X$ with base point $x$. Since $X_1$, $X_2$ are both op
 where $u|_{[x_{i-1},x_i]}$ is the segment of $u$ from $x_{i-1}$ to $x_i$.
 \begin{figure}[htbp]
 \centering
-\includegraphics{vankampen-1.pdf}
+\includegraphics{pictures/vankampen-1.pdf}
 \caption{Breaking the path.}
 \end{figure}\par
 Now we reparametrize $u|_{[x_{i-1},x_i]}$ into a path $v_i:I\to X$: explicitly, let $s_{i-1}<s_i$ be points in $[0,1]$ such that $u(s_{i-1})=x_{i-1}$ and $u(s_i)=x_i$, and define
@@ -763,7 +772,7 @@ We can now define $\psi$ by
 where $\phi_*$ means either $\phi_1$ or $\phi_2$ depending on the path. If $w_i\ast v_i\ast\widebar{w}_{i}$ lies both in $X_1$ and $X_2$, then it is in fact in $\pi_1(X_0,x)$, and the commutativity of $(\ref{van kam-1})$ tells us that choosing $\phi_1$ or $\phi_2$ does not matter.\par
 It is clear that such homomotphism $\psi$ can only be defined in this way, and it is indeed a homomorphism. The commutativity of $(\ref{van kam-2})$ is immediate. What still needs some work is that whether $\psi$ is well defined.\par
 First we check that the definition of $\psi$ is independent of the points $x_i$ and the paths $w_i$. Start from the case that we choose a point $x_i$, and $w'_i$ is another path from $x$ to $x_i$.
-\[\includegraphics{vankampen-2.pdf}\]
+\[\includegraphics{pictures/vankampen-2.pdf}\]
 Then we have
 \[\phi_*[w_i\ast v_{i+1}\ast\widebar{w}_{i+1}]=\phi_*[w_i\ast \widebar{w}'_i\ast w'_i\ast v_{i+1}\ast\widebar{w}_{i+1}]=\phi_*[w_i\ast\widebar{w}'_i]\cdot\phi_*[w'_i\ast v_{i+1}\ast\widebar{w}_{i+1}].\]
 On the other hand, 
@@ -772,7 +781,7 @@ Thus
 \[\phi_*[w_{i-1}\ast v_i\ast\widebar{w}_i]\cdot\phi_*[w_i\ast v_{i+1}\ast\widebar{w}_{i+1}]=\phi_*[w_i\ast\widebar{w}'_i]\cdot\phi_*[w_{i-1}\ast v_i\ast\widebar{w}'_i].\]
 This gives the independence of the choosen paths $w_i$.\par
 Now Suppose another point $y\in X_0$ is added along $v_i$ separating the path $v_i$ into two new paths $v'_i$ and $v'_{i-1}$.
-\[\includegraphics[width=0.3\textwidth]{vankampen-3.pdf}\]
+\[\includegraphics[width=0.3\textwidth]{pictures/vankampen-3.pdf}\]
 Choose a path $w'$ from $x$ to $y$ in $X_0$. Suppose for definiteness that the loop $w_{i-1}\ast v_i\ast\widebar{w}_i$ is contained in $X_1$. Then the same is true of the two new loops $w_{i-1}\ast v'_{i-1}\ast\widebar{w}'$ and $w'\ast v'_i\ast\widebar{w}_i$ since $w'_i\sub X_0$, and we have
 \[\phi_1[w_{i-1}\ast v'_{i-1}\ast\widebar{w}']\cdot\phi_1[w'\ast v'_i\ast\widebar{w}_i]=\phi_1[w_{i-1}\ast v'_{i-1}\ast\widebar{w}'\ast w'\ast v'_i\ast\widebar{w}_i]=\phi_1[w_{i-1}\ast v_i\ast\widebar{w}_i]\]
 This shows that adding an additional point to the set of $\{x_i\}$ does not change the value of $[u]$. More generally, the same is true if we add a finite number of points, that is, refining $\{x_i\}$ leads to the same result. Now suppose we are given two different sets $\{x_i\}$ and $\{y_i\}$ of points. Their union is a common refinement of both $\{x_i\}$ and $\{y_i\}$, and we have just shown that the value of $[u]$ doesn't change when refining the set of points. Thus the value of $[u]$ is the same if we use either the $\{x_i\}$ and $\{y_i\}$.\par
@@ -809,13 +818,13 @@ A \textbf{cycle} is a nontrivial simple closed edge path. A \textbf{tree} is a c
 \centering
 \begin{minipage}{200pt}
 \centering
-\includegraphics{Graph-eg1}
+\includegraphics{pictures/Graph-eg1}
 \caption{A graph with three cycles.}
 \end{minipage}
 \hspace{20pt}
 \begin{minipage}{200pt}
 \centering
-\includegraphics{Graph-eg2}
+\includegraphics{pictures/Graph-eg2}
 \caption{A tree.}
 \end{minipage}
 \end{figure}
@@ -844,7 +853,7 @@ Let $\Gamma$ be a finite connected graph. We construct a set of generators for t
 same endpoints are path-homotopic.
 \begin{figure}[htbp]
 \centering
-\includegraphics{fandamental-graph-1}
+\includegraphics{pictures/fandamental-graph-1}
 \caption{Generators for the fundamental group of a graph.}
 \end{figure}
 \begin{theorem}[Fundamental Group of a Finite Graph]\label{fund graph}
@@ -866,7 +875,7 @@ the complement of a spanning tree. Let $\Gamma$ be a graph with a spanning tree 
 $V$ are open in $\Gamma$, and just as before it is easy to construct deformation retractions to show that $U\cap V\simeq T$, $U\simeq T\cup e_{n+1}$ and $V\simeq\Gamma\setminus e_{n+1}$. By the inductive hypothesis, $\pi_1(V,v)=F([f_1],\cdots,[f_n])$ and $\pi_1(U,v)=F([f_{n+1}])$. Since $U\cap V$ is simply connected, Corollary~\ref{van kampen coro} shows that $\pi_1(\Gamma,v)$ is isomorphic to the free product of these two free groups, which in turn is isomorphic the free group on $F([f_1],\cdots,[f_{n+1}])$ as claimed.
 \begin{figure}[htbp]
 \centering
-\includegraphics{fandamental-graph-2}
+\includegraphics{pictures/fandamental-graph-2}
 \end{figure}
 \end{proof}
 \subsection{Fundamental Groups of CW Complexes}
@@ -883,7 +892,7 @@ where $\tau$ is an expression for $\gamma\in\pi_1(X,\widetilde{v})$ in terms of 
 \end{proposition}
 \begin{figure}[htbp]
 \centering
-\includegraphics{attaching-disk}
+\includegraphics{pictures/attaching-disk}
 \caption{Attaching a disk.}
 \end{figure}
 \begin{proof}
@@ -1182,7 +1191,7 @@ a local homeomorphism (because it is the restriction of the covering map $\eps$)
 surjective. However, $f$ is not a covering map, as the point $1\in S^1$ has no evenly covered neighborhood.
 \begin{figure}[htbp]
 \centering
-\includegraphics{covering-counter}
+\includegraphics{pictures/covering-counter}
 \caption{A surjective local homeomorphism that is not a covering map.}
 \end{figure}
 \end{example}
@@ -1684,13 +1693,13 @@ When $n=2k$, the space is divided in left half, which has one hole whose antipod
 \centering
 \begin{minipage}{200pt}
 \centering
-\includegraphics[width=0.5\textwidth]{cover-by-tori-1}
+\includegraphics[width=0.5\textwidth]{pictures/cover-by-tori-1}
 \caption{The case $n=2k+1$.}
 \end{minipage}
 \hspace{20pt}
 \begin{minipage}{200pt}
 \centering
-\includegraphics[width=0.8\textwidth]{cover-by-tori-2}
+\includegraphics[width=0.8\textwidth]{pictures/cover-by-tori-2}
 \caption{The case $n=2k$.}
 \end{minipage}
 \end{figure}
@@ -1760,13 +1769,13 @@ This exercise shows that the hypothesis that $Y$ is locally path-connected canno
 \centering
 \begin{minipage}{200pt}
 \centering
-\includegraphics{sine-curve}
+\includegraphics{pictures/sine-curve}
 \caption{The space of Exercise~\ref{counter lift crit}.}
 \end{minipage}
 \hspace{20pt}
 \begin{minipage}{200pt}
 \centering
-\includegraphics{Hawaiian-earring}
+\includegraphics{pictures/Hawaiian-earring}
 \caption{The Hawaiian-earring.}
 \end{minipage}
 \end{figure}
@@ -2039,15 +2048,14 @@ For $(b)$, note that the fundamental group of $S^1\times\R$ is infinite cyclic, 
 For $(c)$, the covering map $p$ carries the generators $\beta$ and $\gamma$ of $\pi_1(T^2,p)$ to $\beta^a$ and $\beta^b\gamma^c$. Under our isomorphism with $\Z^2$, the subgroup generated by these elements is exactly the one described in $(\rmnum{3})$.
 \end{proof}
 \subsection{Proper Group Actions}
-In this subsection we consider the covering map between manifolds. Especially 
-we would like to find conditions on the group action such that the orbit space 
-is a manifold.\par
-First, we have the following observation.
+In this subsection we consider the covering map between manifolds. Especially we would like to find conditions on the group action such that the orbit space is a manifold. For this, we first note the following observation.
 \begin{theorem}\label{cover mani}
 Suppose $p:E\to X$ is a covering map.
+\begin{itemize}
 \item[$(a)$]If $X$ is Hausdorff, then $E$ is too.
 \item[$(b)$]If $X$ is an $n$-manifold, then $E$ is too.
 \item[$(c)$]If $E$ is an $n$-manifold, then $X$ is an $n$-manifold if and only if $X$ is Hausdorff.
+\end{itemize}
 \end{theorem}
 \begin{proof}
 $(a)$ Let $e_1,e_2$ be distince points in $E$. If $e_1$ and $e_2$ are in the same fiber, the claim is obvious. If they are not, choose disjoint neighborhood of $p(e_1)$, $p(e_2)$, then their preimage under $p$ satisfies the condition.\par
@@ -2296,7 +2304,7 @@ Give an example of a manifold $M$ and a discrete group $\Gamma$ acting continuou
 \end{exercise}
 \begin{proof}
 Consider $\B^3$. Consider the $G=\Z/2\Z$ action on $\B^3$ given by the antipodal map sending $(x,y,z)$ to $-(x,y,z)$. Note that this action is not free, since the antipodal map fixes the origin. The claim is that $\B^3/G$ is homeomorphic to a cone on $\RP^2$.\par 
-To see this, use coordinates on $C\RP^2$ given by $([x,y,z],t)$ where we think of $(x,y,z)\in\R^3$ and we're collapsing $\RP^2×\{0\}$ to a point. Now,map $(x,y,z)$ in $\B^3$ to $([x,y,z],(x^2+y^2+z^2))$ (and map the origin to the cone point). This is clearly continuous away from the origin. It's not too hard to see that it's continuous at the origin as well.\par
+To see this, use coordinates on $C\RP^2$ given by $([x,y,z],t)$ where we think of $(x,y,z)\in\R^3$ and we're collapsing $\RP^2\times\{0\}$ to a point. Now,map $(x,y,z)$ in $\B^3$ to $([x,y,z],(x^2+y^2+z^2))$ (and map the origin to the cone point). This is clearly continuous away from the origin. It's not too hard to see that it's continuous at the origin as well.\par
 It's also not hard to see that this descends to a bijective map from $\B^3/G$ to $C\RP^2$, which is therefore a continuous bijection between compact Hausdorff spaces, so is itself a homeomorphism.\par
 Finally, notice that $C\RP^2$ is not a topological manifold (with or without boundary) because of the singular point $p=\P^2\times\{0\}$.
 \end{proof}

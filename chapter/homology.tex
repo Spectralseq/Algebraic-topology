@@ -5,6 +5,7 @@ If $S\sub\R^n$ is a linear subspace and $b\in\R^n$, the set
 \[b+S=\{b+x:x\in S\}\]
 is called an \textbf{affine subspace} of $\R^n$ parallel to $S$. We define the dimension of $b+S$ to be the dimension of $S$.\par
 Suppose $v_0,\dots,v_k$ are $k+1$ distinct points in $\R^n$. As long as $n\geq k$, elementary linear algebra shows that there is always some $k$-dimensional affine subspace of $\R^n$ containing $\{v_0,\dots,v_k\}$: for example, if $S$ is any $k$-dimensional linear subspace containing $\{v_1-v_0,\dots,v_k-v_0\}$, then $v_0+S$ is such a space. We say that the set $\{v_0,\dots,v_k\}$ is \textbf{affinely independent} (or is \textbf{in general position}) if it is not contained in any affine subspace of dimension strictly less than $k$.
+
 \begin{proposition}
 For any $k+1$ distinct points $v_0,\dots,v_k\in\R^n$, the following are equivalent:
 \begin{itemize}
@@ -90,13 +91,13 @@ Let $K$ and $L$ be simplicial complexes. Suppose $f_0:K_0\to L_0$ is any map wit
 the vertices of a simplex of $L$.
 \end{theorem}
 \subsection{Abstract Simplicial Complexes}
-Theorem~\ref{simplical map} says that a simplicial complex is completely determined up to simplicial isomorphism by knowledge of its vertices and which sets of vertices span simplices. Motivated by this observation, we define an \textbf{abstract simplicial complex} to be a collection $\mathcal{K}$ of nonempty finite sets, subject to only one condition: if $s\in\mathcal{K}$, then every nonempty subset of $s$ is in $\mathcal{K}$.\par
+\cref{simplical map} says that a simplicial complex is completely determined up to simplicial isomorphism by knowledge of its vertices and which sets of vertices span simplices. Motivated by this observation, we define an \textbf{abstract simplicial complex} to be a collection $\mathcal{K}$ of nonempty finite sets, subject to only one condition: if $s\in\mathcal{K}$, then every nonempty subset of $s$ is in $\mathcal{K}$.\par
 If $\mathcal{K}$ is an abstract simplicial complex, the finite sets that make up $\mathcal{K}$ are called \textbf{abstract simplices}. Given an abstract simplex $s\in\mathcal{K}$, any element of $s$ is called a \textbf{vertex} of $s$, and any nonempty subset of $s$ is called a \textbf{face} of $s$. We say $\mathcal{K}$ is a \textbf{finite complex} if $\mathcal{K}$ itself is a finite set, and a \textbf{locally finite complex} if every vertex belongs to only finitely many abstract simplices. The \textbf{dimension of an abstract simplex} $s\in\mathcal{K}$ is one less than the number of elements of $s$. If the dimensions of the abstract simplices of $\mathcal{K}$ are bounded above, then we say $\mathcal{K}$ is \textbf{finite-dimensional}, and its dimension is the smallest upper bound of the dimensions of its simplices.\par
 Now suppose that $\mathcal{K}$ and $\mathcal{L}$ are abstract complexes. Define their vertex sets by
 \[\mathcal{K}_0=\bigcup_{s\in\mathcal{K}}s,\quad \mathcal{L}_0=\bigcup_{s\in\mathcal{L}}s.\]
 A map $f:\mathcal{K}\to\mathcal{L}$ is called an \textbf{abstract simplicial map} if it is of the form $f(\{v_0,\dots,v_k\})=\{f_0(v_0),\dots,f_0(v_k)\}$ for some map $f_0:\mathcal{K}_0\to\mathcal{L}_0$, called the \textbf{vertex map} of $f$ (which must have the property that $\{f_0(v_0),\dots,f_0(v_k)\}$ whenever $\{v_0,\dots,v_k\}\in\mathcal{K}$). An abstract simplicial map $f$ is called an isomorphism if both $f_0$ and $f$ are bijections. In that case, $f^{-1}$ is also an abstract simplicial map.\par
 One way of constructing an abstract simplicial complex, as you have probably
-already guessed, is the following. Given a Euclidean simplicial complex $K$, let $\mathcal{K}$ denote the collection of all those finite sets $\{v_0,\dots,v_k\}$ that consist of the vertices of some simplex of $K$. It is immediate that $\mathcal{K}$ is an abstract simplicial complex, called the vertex scheme of $K$. It follows from Theorem~\ref{simplical map} that two Euclidean complexes are simplicially isomorphic if and only if their vertex schemes are isomorphic.
+already guessed, is the following. Given a Euclidean simplicial complex $K$, let $\mathcal{K}$ denote the collection of all those finite sets $\{v_0,\dots,v_k\}$ that consist of the vertices of some simplex of $K$. It is immediate that $\mathcal{K}$ is an abstract simplicial complex, called the vertex scheme of $K$. It follows from \cref{simplical map} that two Euclidean complexes are simplicially isomorphic if and only if their vertex schemes are isomorphic.
 We can also start with an abstract simplicial complex $\mathcal{K}$ and attempt to go back the other way. If $K$ is a Euclidean simplicial complex whose vertex scheme is isomorphic to $\mathcal{K}$, we say $K$ is a \textbf{geometric realization} of $\mathcal{K}$. The discussion above shows that $K$ is uniquely determined by $\mathcal{K}$, up to simplicial isomorphism. As the next proposition shows, constructing a geometric realization in the finite case is easy.
 \begin{proposition}
 Every finite abstract simplicial complex has a geometric realization.
@@ -106,13 +107,16 @@ Let $v_1,\dots,v_m$ be the vertices of $\mathcal{K}$ in some order, and let $K\s
 and it is straightforward to show that the vertex scheme of $K$ is isomorphic
 to $\mathcal{K}$.
 \end{proof}
+
 \begin{example}
 The following abstract complexes
 are isomorphic to the vertex schemes of the Euclidean complexes of Example~\ref{simplicial comp eg}:
 \begin{itemize}
 \item[$(a)$] The set of all nonempty subsets of $\{0,1,\dots,n\}$ is an abstract complex whose geometric realization is homeomorphic to $\widebar{\B}^n$.
 \item[$(b)$] The set of all proper nonempty subsets of $\{0,1,\dots,n\}$ is an abstract complex whose geometric realization is homeomorphic to $S^{n-1}$.
-\item[$(c)$] Let $m$ be an integer greater than or equal to $3$, and let $K_m$ be the abstract complex whose $0$-simplices are $\{\{1\},\{2\},\dots,\{n\}\}$, and whose $1$-simplices are $\{\{1,2\},\{2,3\},\dots,\{m-1,m\},\{m,1\}\}$. Its geometric realization is homeomorphic to $S^1$.
+\item[$(c)$] Let $m$ be an integer greater than or equal to $3$, and let $K_m$ be the abstract complex whose $0$-simplices are $\{\{1\},\{2\},\dots,\{n\}\}$, and whose $1$-simplices are
+\[\{\{1,2\},\{2,3\},\dots,\{m-1,m\},\{m,1\}\}.\]
+Its geometric realization is homeomorphic to $S^1$.
 \item[$(d)$] The set $\mathcal{R}$ of all singletons $\{n\}$ and all pairs of the form $\{n,n+1\}$ as $n$ ranges over the integers, is an abstract complex that has a geometric realization homeomorphic to $\R$.
 \item[$(e)$] The subset of $\mathcal{R}$ consisting of those singletons $\{n\}$ and pairs $\{n,n+1\}$ for which $n\geq 0$ is an abstract complex that has a geometric realization homeomorphic to $[0,\infty)$.
 \end{itemize}
@@ -121,7 +125,7 @@ The most natural way to modify a simplicial complex to obtain another one with a
 a subdivision of $K$ is a simplicial complex $K'$ such that each simplex of $K'$ is contained in a simplex of $K$, and each simplex of $K$ is a union of simplices of $K'$. It follows immediately from these properties that $|K|=|K'|$.
 \subsection{\boldmath$\Delta$-Complex}
 The torus, the projective plane, and the Klein bottle can each be obtained from a square by identifying opposite edges in the way indicated by the arrows in the following figures:
-\[\includegraphics[width=0.8\textwidth]{delta-complex.pdf}\]
+\[\includegraphics[width=0.8\textwidth]{pictures/delta-complex.pdf}\]
 Cutting a square along a diagonal produces two triangles, so each of these surfaces can also be built from two triangles by identifying their edges in pairs. In similar fashion a polygon with any number of sides can be cut along diagonals into triangles, so in fact all closed surfaces can be constructed from triangles by identifying edges.\par
 We begin with some definitions. For any integer $n\geq0$, let $\Delta^n\sub\R^n$ denote the \textbf{standard $\bm{n}$-simplex} $[e_0,\dots,e_n]$. The union of all the faces of $\Delta^n$ is the boundary of $\Delta^n$, written $\partial\Delta^n$. The open simplex $\Int(\Delta^n)$ is $\Delta^n-\partial\Delta^n$, the interior of $\Delta^n$.\par
 A \textbf{$\bm{\Delta}$-complex} structure on a space $X$ is a collection of maps $\sigma_\alpha:\Delta^n\to X$, with $n$ depending on the index $\alpha$, such that:
@@ -134,9 +138,8 @@ one such restriction $\sigma_\alpha|_{\Int(\Delta^n)}$.
 Among other things, this last condition rules out trivialities like regarding all the points of $X$ as individual vertices. The earlier decompositions of the torus, projective plane, and Klein bottle into two triangles, three edges, and one or two vertices define $\Delta$-complex structures with   total of six $\sigma_\alpha$'s for the torus and Klein bottle and seven for the projective plane. The orientations on the edges in the pictures are compatible with a unique ordering of the vertices of each simplex, and these orderings determine the maps $\sigma_\alpha$.\par
 A consequence of $(\rmnum{3})$ is that $X$ can be built as a quotient space of a collection of disjoint simplices $\Delta^n_\alpha$, one for each $\sigma_\alpha:\Delta^n\to X$, the quotient space obtained by identifying each face of a $\Delta^n_\alpha$ with the $\Delta_\beta^{n-1}$ corresponding to the restriction $\sigma_\beta$ of $\sigma_\alpha$ to the face in question, as in condition $(\rmnum{2})$. One can think of building the quotient space inductively, starting with a discrete set of vertices, then attaching edges to
 these to produce a graph, then attaching $2$-simplices to the graph, and so on. From this viewpoint we see that the data specifying a $\Delta$-complex can be described purely combinatorially as collections of $n$-simplices $\Delta^n_\alpha$ for each $n$ together with functions associating to each face of each $n$ simplex $\Delta^n_\alpha$ an $(n-1)$ simplex $\Delta^{n-1}_\beta$.\par
-Thinking of a $\Delta$-complex $X$ as a quotient space of a collection of disjoint simplices, it is not hard to see that $X$ must be a Hausdorff space. Condition $(\rmnum{3})$ then implies that each restriction $\sigma_\alpha|_{\Int(\Delta^n)}$ is a homeomorphism onto its image, which is
-thus an open simplex in $X$. It follows from Proposition~\ref{CW maps are char map iff} that these open simplices $\sigma_\alpha(\Int(\Delta^n))$ are the cells 
-$e^n_\alpha$ of a CW complex structure on $X$ with the $\sigma_\alpha$'s as characteristic maps.
+Thinking of a $\Delta$-complex $X$ as a quotient space of a collection of disjoint simplices, it is not hard to see that $X$ must be a Hausdorff space. Condition $(\rmnum{3})$ then implies that each restriction $\sigma_\alpha|_{\Int(\Delta^n)}$ is a homeomorphism onto its image, which is thus an open simplex in $X$. It follows from Proposition~\ref{CW maps are char map iff} that these open simplices $\sigma_\alpha(\Int(\Delta^n))$ are the cells $e^n_\alpha$ of a CW complex structure on $X$ with the $\sigma_\alpha$'s as characteristic maps.
+
 \subsection{Simplicial Homology Groups}
 Our goal now is to define the simplicial homology groups of a $\Delta$-complex $X$. Let $\Delta^n(X)$ be the free abelian group with basis the open $n$-simplices $e^n_\alpha$ of $X$. Elements of $\Delta_n(X)$, called $n$ chains, can be written as finite formal sums $\sum_\alpha n_\alpha e^n_\alpha$ with coefficients $n_\alpha\in\Z$. Equivalently, we could write $\sum_\alpha n_\alpha\sigma_\alpha$ where $\sigma_\alpha:\Delta^n\to X$ is the
 characteristic map of $e^n_\alpha$, with image the closure of $e^n_\alpha$ as described above. Such a sum $\sum_\alpha n_\alpha\sigma_\alpha$ can be thought of as a finite collection, or chain, of $n$-simplices in $X$ with integer multiplicities, the coefficients $n_\alpha$.\par
@@ -362,7 +365,7 @@ of these $3$-simplices, with signs chosen so that the interior boundary contribu
 followed by the map $\sigma\times\id$, and thus is a chain in $X\times I$ whose image is the product set $\sigma(\Delta_2)\times I$.
 \begin{figure}[htbp]
 \centering
-\includegraphics{chain-homotopy}
+\includegraphics{pictures/chain-homotopy}
 \caption{The operator $h$ in dimension $2$.}
 \end{figure}
 Let $\sigma$ be an arbitrary singular $p$-simplex in $X$. We compute
@@ -428,7 +431,7 @@ $\gamma:\pi_1(X,p)\to H_1(X)$ is a surjective homomorphism whose kernel is the c
 We begin by showing that $[\widebar{f}]_H=-[f]_H$ for any path $f$ in $X$. To see this, define a singular $2$-simplex $\sigma:\Delta_2\to X$ by $\sigma(x,y)=f(x)$. Then $\partial\sigma=\widebar{f}-c_p+f$, where $p=f(0)$. Since $c_p$ is a boundary, it follows that the $1$-chains $\widebar{f}$ and $f$ differ by a boundary.\par
 \begin{figure}[htbp]
 \centering
-\includegraphics{Hurewicz-map-1}
+\includegraphics{pictures/Hurewicz-map-1}
 \caption{Proof that $[\bar{f}]_H=-[f]_H$.}
 \end{figure}
 Next we show that $\gamma$ is a homomorphism. Somewhat more generally, we show that $[f\ast g]_H=[f]_H+[g]_H$ for any two composable paths $f,g$. When applied to loops $f$ and $g$ based at $p$, this implies that $\gamma$ is a homomorphism.\par
@@ -442,7 +445,7 @@ This is constant on each line segment $y-x=$ constant, and is continuous by the 
 Thus $\gamma$ is a homomorphism.\par
 \begin{figure}[htbp]
 \centering
-\includegraphics{Hurewicz-map-2}
+\includegraphics{pictures/Hurewicz-map-2}
 \caption{Proof that $\gamma$ is a homomorphism.}
 \end{figure}
 Next we show that $\gamma$ is surjective. For each point $x\in X$, let $\alpha(x)$ be a specific path from $p$ to $x$, with $\alpha(p)$ chosen to be the constant path $c_p$. Since each path $\alpha(x)$ is in particular a $1$-chain, the map $x\mapsto\alpha(x)$ extends uniquely to a homomorphism from $C_0(X)$ to $C_1(X)$, which we still denote by $\alpha$. For any path $\sigma$ in $X$, define a loop $\widetilde{\sigma}$ based at $p$ by
@@ -474,7 +477,7 @@ Let $\sigma$ be a singular $2$-simplex. Write $v_i=\sigma(e_i)$ and $\sigma^{(i)
 which proves that $B_1(X)\sub\ker\beta$.\par
 \begin{figure}[htbp]
 \centering
-\includegraphics{Hurewicz-map-3}
+\includegraphics{pictures/Hurewicz-map-3}
 \caption{Proof that $\ker\gamma$ is the commutator subgroup.}
 \end{figure}
 Now suppose $f$ is a loop such that $[f]_\pi\in\ker\gamma$. This means that $[f]_H=0$, or equivalently that the singular $1$-chain $f$ is a boundary. Because $f$ is a loop based at $p$, we have $\beta(f)=[\widetilde{f}]_\Pi=[f]_\Pi$. On the other hand, since $\beta$ takes boundaries to the identity element of $\Pi$, it follows that $[f]_\Pi=1$, or equivalently that $[f]_\pi$ is in the commutator subgroup.
@@ -577,7 +580,7 @@ If two maps $f,g:(X,A)\to (Y,B)$ are homotopic through maps of
 pairs $(X,A)\to(Y, B)$, then $f_*=g_*:H_p(X,A)\to H_p(Y,B)$.
 \end{proposition}
 \begin{proof}
-The operator $h$ from the proof of Theorem~\ref{homology homotopy equivalence} takes $C_p(A)$ to $C_{p+1}(B)$, hence induces a relative operator $h:C_p(X,A)\to C_{n+1}(Y,B)$. Since we are just passing to quotient groups, the formula $\partial h+h\partial=g_\sharp-f_\sharp$ remains valid. Thus the maps $f_\sharp$ and $g_\sharp$ on relative chain groups are chain homotopic, and hence they induce the same homomorphism on relative homology groups.
+The operator $h$ from the proof of \cref{homology homotopy equivalence} takes $C_p(A)$ to $C_{p+1}(B)$, hence induces a relative operator $h:C_p(X,A)\to C_{n+1}(Y,B)$. Since we are just passing to quotient groups, the formula $\partial h+h\partial=g_\sharp-f_\sharp$ remains valid. Thus the maps $f_\sharp$ and $g_\sharp$ on relative chain groups are chain homotopic, and hence they induce the same homomorphism on relative homology groups.
 \end{proof}
 An easy generalization of the long exact sequence of a pair $(X,A)$ is the long exact sequence of a triple $(X,A,B)$, where $B\sub A\sub X$:
 \[\begin{tikzcd}
@@ -637,7 +640,7 @@ Now we define an operator $s$ taking affine $p$-chains to affine $p$-chains, cal
 (where $b_p$ is the barycenter of $\Delta^p$), and extend linearly to affine chains.
 \begin{figure}[htbp]
 \centering
-\includegraphics{barycenter-1}
+\includegraphics{pictures/barycenter-1}
 \caption{Singular subdivisions of an affine simplex..}
 \end{figure}
 \begin{lemma}\label{subdivision lem}
@@ -679,7 +682,7 @@ The second is proved by induction on $p$. For $p=0$ it is immediate because $s$ 
 where for $1$ and $4$ we use part $(a)$, for $2$ we use $(\ref{affine chain sub})$, and for $3$ we use the inductive hypothesis.\par
 To prove $(c)$, define the \textbf{mesh} of an affine chain $c$ in $\R^n$ to be the maximum of the diameters of the images of the affine simplices that appear in $c$. By Lemma~\ref{subdivision lem}, by choosing $m$ large enough, we can make the mesh of $s^mi_p$ arbitrarily small. If $\sigma$ is any singular simplex in $X$, by the Lebesgue number lemma there exists $\delta>0$ such that any subset of $\Delta^p$ of diameter less than $\delta$ lies in $\sigma^{-1}(U)$ for one of the sets $U\in\mathcal{U}$. In particular, if $c$ is an affine chain in $\Delta^p$ whose mesh is less than $\delta$, then $\sigma_\sharp c\in C_p^\mathcal{U}(X)$. Choose  $\delta$ to be the minimum of the Lebesgue numbers for all the singular simplices appearing in $c$, and choose $m$ large enough that $s^mi_p$ has mesh less than $\delta$. Then $s^m\sigma=\sigma_\sharp(s^mi_p)$ as desired.
 \end{proof}
-\begin{proof}[Proof of Theorem~\ref{homology open cover}]
+\begin{proof}[Proof of \cref{homology open cover}]
 The crux of the proof is the construction of a chain homotopy between $s$ and the identity map of $C_p(X)$. Recall that this is a homomorphism $h:C_p(X)\to C_{p+1}(X)$ satisfying
 \begin{align}\label{chain homotopy eg}
 \partial\circ h+h\circ\partial=\id-s.
@@ -710,7 +713,7 @@ We prove the second version, involving a decomposition $X=A\cup B$. For the cove
 By the way, recall the second isomorphism theorem, which states that if $H,K$ are subgroups of an abelian group $G$, then
 \[\dfrac{H}{H\cap K}\cong\dfrac{H+K}{K}.\]
 \end{remark}
-All that remains in the proof of Theorem~\ref{homology quotient space} is to replace relative homology groups with absolute homology groups. This is achieved by the following result.
+All that remains in the proof of \cref{homology quotient space} is to replace relative homology groups with absolute homology groups. This is achieved by the following result.
 \begin{proposition}\label{homology reduced and quotient}
 For good pairs $(X,A)$, the quotient map $q:(X,A)\to(X/A,A/A)$
 induces isomorphisms $q_*:H_p(X,A)\to H_p(X/A,A/A)\cong\widetilde{H}_p(X/A)$ for all $p$.
@@ -945,7 +948,7 @@ H_n(S^n)\ar[r]\ar[d,"R_{1*}"]&H_{n-1}(S^{n-1})\ar[d,"R_{1*}"]\\
 H_n(S^n)\ar[r]&H_{n-1}(S^{n-1})
 \end{tikzcd}\end{equation}
 From this it follows immediately by induction that $R_1$ has degree $-1$ on $S^n$.\par
-To prove $(\ref{degree lem-1})$, let $\mathcal{U}=\{U,V\}$ be the covering of $S^n$ by contractible open sets used in the proof of Theorem~\ref{homology sphere} (the complements of the north and south poles). Note that $R_1$ preserves the sets $U$ and $V$, and therefore induces chain maps that make the following diagram commute:
+To prove $(\ref{degree lem-1})$, let $\mathcal{U}=\{U,V\}$ be the covering of $S^n$ by contractible open sets used in the proof of \cref{homology sphere} (the complements of the north and south poles). Note that $R_1$ preserves the sets $U$ and $V$, and therefore induces chain maps that make the following diagram commute:
 \[\begin{tikzcd}
 0\ar[r]&C_\bullet(U\cap V)\ar[d,"R_{1\sharp}"]\ar[r]&C_\bullet(U)\oplus C_\bullet(V)\ar[r]\ar[d,"R_{1\sharp}\oplus R_{1\sharp}"]&C_\bullet^\mathcal{U}(S^n)\ar[d,"R_{1\sharp}"]\ar[r]&0\\
 0\ar[r]&C_\bullet(U\cap V)\ar[r]&C_\bullet(U)\oplus C_\bullet(V)\ar[r]&C_\bullet^\mathcal{U}(S^n)\ar[r]&0
@@ -955,7 +958,7 @@ Therefore, by the naturality property of $\partial$, the following diagram also 
 H_n(S^n)\ar[r,"\partial"]\ar[d,"R_{1\sharp}"]&H_{n-1}(U\cap V)\ar[d,"R_{1\sharp}"]&H_{n-1}(S^{n-1})\ar[d,"R_{1\sharp}"]\ar[l,swap,"\iota_*"]\\
 H_n(S^n)\ar[r,"\partial"]&H_{n-1}(U\cap V)&H_{n-1}(S^{n-1})\ar[l,swap,"\iota_*"]
 \end{tikzcd}\]
-where $S^{n-1}=S^n\cap\{x_{n+1}=0\}$ is the equatorial $(n-1)$-sphere and $\iota:S^{n-1}\to U\cap V$ is inclusion. The horizontal maps are isomorphisms: $\iota_*$ because $\iota$ is a homotopy equivalence, and $\partial$ by the argument in the proof of Theorem~\ref{homology sphere}. Composing the horizontal isomorphisms and eliminating the middle column, we obtain $(\ref{degree lem-1})$.\par
+where $S^{n-1}=S^n\cap\{x_{n+1}=0\}$ is the equatorial $(n-1)$-sphere and $\iota:S^{n-1}\to U\cap V$ is inclusion. The horizontal maps are isomorphisms: $\iota_*$ because $\iota$ is a homotopy equivalence, and $\partial$ by the argument in the proof of \cref{homology sphere}. Composing the horizontal isomorphisms and eliminating the middle column, we obtain $(\ref{degree lem-1})$.\par
 Finally, the antipodal map is equal to the $(n+1)$-fold composition $R_1\circ\cdots\circ R_{n+1}$, so it has degree $(-1)^{n+1}$.
 \end{proof}
 \begin{theorem}
@@ -1071,7 +1074,7 @@ Substituting this into $(\ref{attching cell-1})$ yields an exact sequence
 \end{tikzcd}\]
 Then $(b)$ and $(c)$ follow easily. This completes the proof sunder the assumption $p\geq2$.\par
 Now suppose $p=1$. Under this assumption, case $(c)$ does not occur because we are assuming $n\geq 2$. In both cases $(a)$ and $(b)$, the proofs above go through verbatim, except that now $H_{p-1}(U\cap V)$ is no longer trivial, so we need a different argument
-to show that the homomorphism $H_1(X)\to H_1(Y)$ is surjective. It follows from Proposition~\ref{attaching n cell} in case $(a)$ and Proposition~\ref{attaching disk} in case $(b)$ that the fundamental group homomorphism $\pi_1(X,v)\to\pi_1(Y,v)$ induced by inclusion is surjective. In addition, Theorem~\ref{Hurewicz} shows that the Hurewicz homomorphism $\gamma:\pi_1(Y,v)\to H_1(Y)$ is surjective. Because the diagram
+to show that the homomorphism $H_1(X)\to H_1(Y)$ is surjective. It follows from Proposition~\ref{attaching n cell} in case $(a)$ and Proposition~\ref{attaching disk} in case $(b)$ that the fundamental group homomorphism $\pi_1(X,v)\to\pi_1(Y,v)$ induced by inclusion is surjective. In addition, \cref{Hurewicz} shows that the Hurewicz homomorphism $\gamma:\pi_1(Y,v)\to H_1(Y)$ is surjective. Because the diagram
 \[\begin{tikzcd}
 \pi_1(X,v)\ar[d,"\gamma"]\ar[r]&\pi_1(Y,v)\ar[d,"\gamma"]\\
 H_1(X)\ar[r]&H_1(Y)
@@ -1093,11 +1096,11 @@ not injective, and $H_n(X)=0$ otherwise.
 \end{itemize}
 \end{theorem}
 \begin{proof}
-Part $(a)$ follows immediately from Theorem~\ref{homology attach}, because attaching an $m$-cell cannot change $H_p(X)$ if $p<m-1$.\par
-To prove $(b)$, assume $p>n$, and note that $X$ is obtained from $X^0$ by adding finitely many cells of dimensions less than or equal to $n$, so the homomorphism $H_p(X^0)\to H_p(X)$ is an isomorphism by Theorem~\ref{homology attach}$(a)$ and induction. Since $H_p(X^0)=0$ by Proposition~\ref{homology point}, the result follows.\par
-To prove $(c)$, note first that by $(a)$, we can replace $H_p(X)$ by the isomorphic group $H_p(X^{p+1})$. Furthermore, there is a surjection $H_p(X^p)\to H_p(X^{p+1})$ by Theorem~\ref{homology attach}$(b)$ and induction. Since a surjection takes generators to generators, and cannot increase rank, it suffices to prove that $H_p(X^p)$ satisfies the stated conditions. If there are no $p$-cells, then $H_p(X^p)=H_p(X^{p-1})=0$ by part $(b)$, so it suffices to show that attaching a single $p$-cell does not change the fact that the $p$-th homology group is finitely generated, and does not increase its rank
+Part $(a)$ follows immediately from \cref{homology attach}, because attaching an $m$-cell cannot change $H_p(X)$ if $p<m-1$.\par
+To prove $(b)$, assume $p>n$, and note that $X$ is obtained from $X^0$ by adding finitely many cells of dimensions less than or equal to $n$, so the homomorphism $H_p(X^0)\to H_p(X)$ is an isomorphism by \cref{homology attach}$(a)$ and induction. Since $H_p(X^0)=0$ by Proposition~\ref{homology point}, the result follows.\par
+To prove $(c)$, note first that by $(a)$, we can replace $H_p(X)$ by the isomorphic group $H_p(X^{p+1})$. Furthermore, there is a surjection $H_p(X^p)\to H_p(X^{p+1})$ by \cref{homology attach}$(b)$ and induction. Since a surjection takes generators to generators, and cannot increase rank, it suffices to prove that $H_p(X^p)$ satisfies the stated conditions. If there are no $p$-cells, then $H_p(X^p)=H_p(X^{p-1})=0$ by part $(b)$, so it suffices to show that attaching a single $p$-cell does not change the fact that the $p$-th homology group is finitely generated, and does not increase its rank
 by more than $1$.\par
-Suppose, therefore, that $Z$ is a space such that $H_p(Z)$ is finitely generated, and $Y$ is obtained from $Z$ by adding a $p$-cell. By Theorem~\ref{homology attach}$(c)$, there is an exact
+Suppose, therefore, that $Z$ is a space such that $H_p(Z)$ is finitely generated, and $Y$ is obtained from $Z$ by adding a $p$-cell. By \cref{homology attach}$(c)$, there is an exact
 sequence
 \[\begin{tikzcd}
 0\ar[r]&H_p(Z)\ar[r,"l_*"]&H_p(Y)\ar[r]&K\ar[r]&0
@@ -1107,7 +1110,7 @@ generated and $\rank H_p(Y)=\rank H_p(Z)+\rank K\leq\rank H_p(Z)+1$.\par
 Next consider $(d)$, and assume that $X$ has no $(p-1)$-cells or $(p+1)$-cells. Since $X^{p+1}=X^p$, part $(a)$ implies that $H_p(X)=H_p(X^{p+1})=H_p(X^p)$. We prove 
 by induction on $m$ that if X has $m$ cells of dimension $p$, then $H_p(X^p)$ is free abelian of rank $m$. If $m=0$, then $H_p(X^p)=0$ by $(c)$, so assume it is true 
 when the number of $p$-cells is $m-1$, and assume that $X$ has $m$ $p$-cells. Let $e$ be one of the $p$-cells, let $Z=X\setminus e$, and let 
-$\varphi:\partial D\to X^{p-1}=Z_{p-1}$ be an attaching map for $e$. Then by induction $H_p(Z)$ is free abelian of rank $m-1$. By Theorem~\ref{homology attach}$(c)$, 
+$\varphi:\partial D\to X^{p-1}=Z_{p-1}$ be an attaching map for $e$. Then by induction $H_p(Z)$ is free abelian of rank $m-1$. By \cref{homology attach}$(c)$, 
 there is an exact sequence
 \[\begin{tikzcd}
 0\ar[r]&H_p(Z)\ar[r]&H_p(X)\ar[r]&\ker\varphi_*\ar[r]&0
@@ -1126,7 +1129,7 @@ Here are some examples to illustrate how these results can be used.
 \begin{example}[\textbf{Homology of CW Complexes}]
 \mbox{}
 \begin{itemize}
-\item[$(a)$]Complex projective $n$-space $\CP^n$ has a CW decomposition with one cell in each even dimension $0,\dots,2n$. It follows from Theorem~\ref{homology CW prop} that $H_{2k}(\CP^n)=\Z$ for $k=1,\dots,n$, and the odd-dimensional homology groups vanish.
+\item[$(a)$]Complex projective $n$-space $\CP^n$ has a CW decomposition with one cell in each even dimension $0,\dots,2n$. It follows from \cref{homology CW prop} that $H_{2k}(\CP^n)=\Z$ for $k=1,\dots,n$, and the odd-dimensional homology groups vanish.
 \item[$(b)$]Let $M$ be a compact orientable surface of genus $n$. Then $M$ has a CW decomposition that has a single $2$-cell, and has a $1$-skeleton homeomorphic to a 
 wedge sum of $2n$ circles. By Corollary~\ref{Hurewicz}, $H_1(M)$ is isomorphic to the free abelian group $\Z\{\alpha_1,\beta_1,\dots,\alpha_n,\beta_n\}$, which is 
 $\Z^{2n}$. The attaching map for the $2$-cell sends a generator of $H_1(\partial D)$ to the element $\gamma(\alpha_1\beta_1\alpha_1^{-1}\beta_1^{-1}\cdots\alpha_n\beta_n\alpha_n^{-1}\beta_n^{-1})$, where $\gamma$ is the Hurewicz homomorphism. Because $H_1(M)$ is abelian, this image is zero. Therefore $\varphi_*$ is the zero map, so $H_2(M)\cong\Z$.
@@ -1158,7 +1161,7 @@ H_{n+1}(X^k,X^{k-1})\ar[r]&H_n(X^{k-1})\ar[r]&H_n(X^{k})\ar[r]&H_n(X^k,X^{k-1})\
 \end{tikzcd}\]
 Let us first show that the first and fourth vertical maps are isomorphisms for all $n$. The simplicial chain group $\Delta^n(X^k,X^{k-1})$ is zero for $n\neq k$, and is free abelian with basis the $k$-simplices of $X$ when $n=k$. Hence $H_n^\Delta(X^k,X^{k-1})=\Delta^n(X^k,X^{k-1})$ is also free abelian with the same rank. The corresponding singular homology groups $H_n(X^k,X^{k-1})$ can be computed by considering the map $\Phi:\coprod_\alpha(\Delta^k_\alpha,\partial^k_\alpha)\to(X^k,X^{k-1})$ formed by the characteristic maps $\Delta^k\to X$ for all the $k$-simplices of $X$. Since $\Phi$ induces a homeomorphism of quotient spaces $\coprod_\alpha \Delta^k_\alpha/\coprod_\alpha\partial\Delta^k_\alpha\approx X^k/X^{k-1}$, it induces isomorphisms on all singular homology groups. Thus $H_n(X^k,X^{k-1})$ is zero for $n\neq k$, while for $n=k$ this group is free abelian with basis represented by the relative cycles given by the characteristic maps of all the $k$-simplices of $X$, in view of the fact that $Hk(Δk, ∂Δk)$ is generated by the identity map $\Delta^k\to\Delta^k$, as we showed in Example~\ref{find generator}. Therefore the map  is an isomorphism.\par
 By induction on $k$ we may assume the second and fifth vertical maps in the preceding diagram are isomorphisms as well. The five lemma will then imply that the middle vertical map is an isomorphism, finishing the proof when $X$ is finite-dimensional and $A=\emp$.\par
-We next consider the case that $X$ is infinite-dimensional, where we will use the following fact: A compact set in $X$ can meet only finitely many open simplices of $X$, that is, simplices with their proper faces deleted. This is a general fact about CW complexes proved in Theorem~\ref{CW compact iff}. This can be applied to show the map $H^\Delta_n(X)\to H_n(X)$ is surjective.  Represent a given element of $H_n(X)$ by a singular $n$ cycle $z$. This is a linear combination of finitely many singular simplices with compact images, meeting only finitely many open simplices of $X$, hence contained in $X^k$ for some $k$. We have shown that $H^\Delta_n(X^k)\to H_n(X^k)$ is an isomorphism, in particular surjective, so $z$ is homologous in $X^k$ (hence in $X$) to a simplicial cycle. This gives surjectivity. Injectivity is similar: If a simplicial $n$ cycle $z$ is the boundary of a singular chain in $X$, this chain has compact image and hence must lie in some $X^k$, so $z$ represents an element of the kernel of $H^\Delta_n(X^k)\to H_n(X^k)$. But we know this map is injective, so $z$ is a simplicial boundary in $X^k$, and therefore in $X$.\par
+We next consider the case that $X$ is infinite-dimensional, where we will use the following fact: A compact set in $X$ can meet only finitely many open simplices of $X$, that is, simplices with their proper faces deleted. This is a general fact about CW complexes proved in \cref{CW compact iff}. This can be applied to show the map $H^\Delta_n(X)\to H_n(X)$ is surjective.  Represent a given element of $H_n(X)$ by a singular $n$ cycle $z$. This is a linear combination of finitely many singular simplices with compact images, meeting only finitely many open simplices of $X$, hence contained in $X^k$ for some $k$. We have shown that $H^\Delta_n(X^k)\to H_n(X^k)$ is an isomorphism, in particular surjective, so $z$ is homologous in $X^k$ (hence in $X$) to a simplicial cycle. This gives surjectivity. Injectivity is similar: If a simplicial $n$ cycle $z$ is the boundary of a singular chain in $X$, this chain has compact image and hence must lie in some $X^k$, so $z$ represents an element of the kernel of $H^\Delta_n(X^k)\to H_n(X^k)$. But we know this map is injective, so $z$ is a simplicial boundary in $X^k$, and therefore in $X$.\par
 It remains to do the case of arbitrary $X$ with $A\neq\emp$, but this follows from the absolute case by applying the five-lemma to the canonical map from the long exact sequence of simplicial homology groups for the pair $(X,A)$ to the corresponding long exact sequence of singular homology groups.
 \end{proof}
 We can deduce from this theorem that $H_n(X)$ is finitely generated whenever $X$
@@ -1445,7 +1448,7 @@ $\widebar{\B}^{n+1}$ is contractible, hence has homology zero. In particular, th
 Show that if $n$ is even, then $Z/2\Z$ is the only nontrivial group that can act freely on $S^n$ by homeomorphisms.
 \end{exercise}
 \begin{proof}
-If $G$ acts on $S^n$ by homeomorphisms, the degree defines a homomorphism from $G$ to $\{\pm 1\}$: if $\varphi:S^n\to S^n$ is a homeomorphism, $\deg\varphi=\pm 1$ since $\varphi$ has an inverse. Since $\deg(fg)=(\deg f)(\deg g)$, it is a homomorphism. By Theorem~\ref{degree fix point}, since $(-1)^{n+1}=-1$, if $\deg g=1$, then it has a fix point. However, since $G$ acts freely, we get $g=1$. Then degree is an injective homomorphism from $G$ to $\Z/2\Z$. Since $G$ is not trivial, it can only be $\Z/2\Z$.
+If $G$ acts on $S^n$ by homeomorphisms, the degree defines a homomorphism from $G$ to $\{\pm 1\}$: if $\varphi:S^n\to S^n$ is a homeomorphism, $\deg\varphi=\pm 1$ since $\varphi$ has an inverse. Since $\deg(fg)=(\deg f)(\deg g)$, it is a homomorphism. By \cref{degree fix point}, since $(-1)^{n+1}=-1$, if $\deg g=1$, then it has a fix point. However, since $G$ acts freely, we get $g=1$. Then degree is an injective homomorphism from $G$ to $\Z/2\Z$. Since $G$ is not trivial, it can only be $\Z/2\Z$.
 \end{proof}
 \begin{exercise}
 Show that the dimension of a finite-dimensional CW complex is a topological invariant, and that any triangulation of an $n$-manifold has dimension $n$.
@@ -1496,7 +1499,7 @@ where $|v|=1$. So a homotopy is immediate.
 Show that every map $S^n\to S^n$ can be homotoped to have a fixed point if $n>0$.
 \end{exercise}
 \begin{proof}
-If $f:S^n\to S^n$ has no fixed points, then it is homotopic to the antipodal map. If $n$ is odd, there is a homotopy from it to the identity by Theorem~\ref{antiplde map homotopy}. If $n$ is even, this does not work, since the homotopy does not exist in this case. But, if we consider
+If $f:S^n\to S^n$ has no fixed points, then it is homotopic to the antipodal map. If $n$ is odd, there is a homotopy from it to the identity by \cref{antiplde map homotopy}. If $n$ is even, this does not work, since the homotopy does not exist in this case. But, if we consider
 \begin{align*}
 \big(&(x_1,x_2,...,x_{2m+1}),t\big)\mapsto\\
 &(x_1\cos t-x_2\sin t,x_2\cos t+x_1\sin t,\dots,x_{2m-1}\cos t-x_{2m}\sin t,x_{2m}\cos t+x_{2m-1}\sin t,-x_{2m+1}).
@@ -1547,13 +1550,13 @@ so $H_0(X)=H_2(X)=\Z$, $H_1(X)=\Z^2$.
 \centering
 \begin{minipage}{200pt}
 \centering
-\includegraphics[width=0.7\textwidth]{cell-1}
+\includegraphics[width=0.7\textwidth]{pictures/cell-1}
 \caption{The cells.}
 \end{minipage}
 \hspace{20pt}
 \begin{minipage}{200pt}
 \centering
-\includegraphics[width=0.8\textwidth]{cell-2}
+\includegraphics[width=0.8\textwidth]{pictures/cell-2}
 \caption{Attaching presentation.}
 \end{minipage}
 \end{figure}
@@ -2232,7 +2235,7 @@ For vertices $v_1,\dots,v_n$ of a simplicial complex $X$, the intersection $\st 
 The intersection $\st v_1\cap\cdots\cap\st v_n$ consists of the interiors of all simplices $\tau$ whose vertex set contains $\{v_1,\dots,v_n\}$. If $\st v_1\cap\cdots\cap\st v_n$ is nonempty, such a $\tau$ exists and contains the simplex $\sigma=[v_1,\dots,v_n]\sub X$. The simplices $\tau$ containing
 $\{v_1,\dots,v_n\}$ are just the simplices containing $\sigma$, so $\st v_1\cap\cdots\cap\st v_n$.
 \end{proof}
-\begin{proof}[Proof for Theorem~\ref{Simplicial Approximation}]
+\begin{proof}[Proof for \cref{Simplicial Approximation}]
 Choose a metric on $K$ that restricts to the standard Euclidean metric on each simplex of $K$. For example, $K$ can be viewed as a subcomplex of a simplex $\Delta^N$ whose vertices are all the vertices of $K$, and we can restrict a standard metric on $\Delta^N$ to give a metric on $K$. Let $\eps$ be a Lebesgue number for the open cover
 \[\{f^{-1}(\st w)\mid w\text{ is a vertex of }L\}\] 
 of $K$. After iterated barycentric subdivision of $K$ we may assume that each simplex has diameter less than $\eps/2$. The closed star of each vertex $v$ of $K$ then has diameter less than $\eps$, hence this closed star maps by $f$ to
@@ -2260,7 +2263,7 @@ for suppose $r:K\to X$ is a retraction of a finite simplicial complex $K$ onto $
 For $X$ a finite simplicial complex, suppose that $f:X\to X$ has no fixed points. We claim there is a subdivision $L$ of $X$, a further subdivision $K$ of $L$, and a simplicialmap $g:K\to L$ homotopic to $f$ such that $g(\sigma)\cap\sigma=\emp$ for each simplex $\sigma$ of $K$. To see this, first choose a metric $d$ on $X$ as in the proof of the simplicial approximation theorem. Since $f$ has no fixed points, $d(x,f(x))>0$ for all $x\in X$, so by the compactness of $X$ there is an $\eps>0$ such that $d(x,f(X))>\eps$ for all $x$. Choose a subdivision $L$ of $X$ so that the stars of all simplices have diameter less than $\eps/2$. Applying the simplicial approximation theorem, there is a subdivision $K$ of $L$ and a simplicial map $g:K\to L$ homotopic to $f$. By construction, $g$ has the property that for each simplex $\sigma$ of $K$, $f(\sigma)$ is contained in the star of the simplex $g(\sigma)$. Then $g(\sigma)\cap\sigma=\emp$ for each simplex $\sigma$ of $K$ since for any choice of $x\in\sigma$ we have $d(x,f(x))>\eps$, while $g(\sigma)$ lies within distance $\eps/2$ of $f(x)$ and $\sigma$ lies within distance $\eps/2$ of $x$, as a consequence of the fact that $\sigma$ is contained in a simplex of $L$, $K$ being a subdivision of $L$.\par
 The Lefschetz numbers $\tau(f)$ and $\tau(g)$ are equal since $f$ and $g$ are homotopic. Since $g$ is simplicial, it takes the $n$ skeleton $K^n$ of $K$ to the $n$ skeleton $L^n$ of $L$, for each $n$. Since $K$ is a subdivision of $L$, $L^n$ is contained in $K^n$, and hence $g(K^n)\sub K^n$ for all $n$. Thus $g$ induces a chain map of the cellular chain complex $\{H_n(K^n,K^{n-1})\}$ to itself. This can be used to compute $\tau(g)$ according to the formula
 \[\tau(g)=\sum_n(-1)^n\tr(g_*:H_n(K^n,K^{n-1})\to H_n(K^n,K^{n-1})).\]
-This is the analog of Theorem~\ref{Eular char} for trace instead of rank, and is proved in precisely the same way, based on the elementary algebraic fact that trace is additive for endomorphisms of short exact sequences: Given a commutative diagram with exact rows:
+This is the analog of \cref{Eular char} for trace instead of rank, and is proved in precisely the same way, based on the elementary algebraic fact that trace is additive for endomorphisms of short exact sequences: Given a commutative diagram with exact rows:
 \[\begin{tikzcd}
 0\ar[r]&A\ar[r]\ar[d,"\alpha"]&B\ar[r]\ar[d,"\beta"]&C\ar[r]\ar[d,"\gamma"]&0\\
 0\ar[r]&A\ar[r]&B\ar[r]&C\ar[r]&0

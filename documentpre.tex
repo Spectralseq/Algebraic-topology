@@ -22,21 +22,60 @@
 \usepackage[framemethod=tikz]{mdframed} 
 \usepackage[tikz]{bclogo}
 \usepackage{lipsum}
-\usepackage{ulem}
 \usepackage{wrapfig}
 \usepackage{color}
 \usepackage{epigraph}
 \usepackage[many]{tcolorbox}
 \usepackage{tikz-cd}
 \usepackage{tikz}
-\usepackage{showkeys}
 \usepackage{fancyhdr}
+\usepackage[capitalize,nameinlink]{cleveref}%动态ref定理，推论，引理等
 
 \usepackage[T1]{fontenc}
-\usepackage{palatino}
-\linespread{1.05}
+\PassOptionsToPackage{no-math}{fontspec}
 
-\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+\usepackage[noBBpl]{mathpazo}
+
+%\usepackage{libertine}
+%\usepackage{palatino}
+%\usepackage{utopia}
+%\usepackage{newcent}
+
+\usepackage{bbold}%定义bbold符号
+\usepackage{l3draw,xparse}
+\usepackage{accents}%创建新的widetilde
+\usepackage{scalerel} %放大数学字体
+\usepackage{calligra,mathrsfs}%for sheaf Hom
+\usepackage{mathtools}%def new widetilde
+\usepackage{calc}%定义箭头不同样式symbol
+\usepackage{ulem}%定义合适的下划线
+
+%-----------------------------------------------------
+%定义BOONDOX包的字体
+\DeclareMathAlphabet{\mathbbb}{U}{bbold}{m}{n}
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+%-----------------------------------------------------
+\DeclareFontFamily{U}{BOONDOX-cal}{\skewchar\font=45}
+\DeclareFontShape{U}{BOONDOX-cal}{m}{n}{
+  <-> s*[1] BOONDOX-r-cal}{}
+\DeclareMathAlphabet{\mathscr}{U}{BOONDOX-cal}{m}{n}
+%-----------------------------------------------------
+\DeclareFontFamily{U}{BOONDOX-frak}{\skewchar\font=45}
+\DeclareFontShape{U}{BOONDOX-frak}{m}{n}{
+  <-> s*[1]  BOONDOX-r-frak}{}
+%\DeclareMathAlphabet{\mathfrak}{U}{BOONDOX-frak}{m}{n}
+
+%----------------------------------------------------
+%设置目录中number和文字的间距
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{25pt} % resets space for section number (usually 2.3em)
+\setlength{\cftsubsecnumwidth}{35pt} % resets space for subsection number (usually 3.2em)
+
+%-----------------------------------------------------
+%设置页面样式
+%\geometry{top=3.5cm,bottom=3.5cm}
+%\linespread{1.15}
+\geometry{hcentering}
 \pagestyle{fancy}
 \setlength{\headheight}{15.0pt}
 \fancyhf{}

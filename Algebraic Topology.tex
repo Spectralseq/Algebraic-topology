@@ -1,29 +1,37 @@
 \documentclass[11pt,A4 paper]{book}
+
 \include{documentpre}
-\newtheorem{remark}{Remark}[section]
-\newtheorem{theorem}{Theorem}[section]
+%\usepackage{showkeys}
+\usepackage{indentfirst} 
+
+\newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{definition}[theorem]{Definition}
+
 \theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[section]
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}{Exercise}[section]
+
+\allowdisplaybreaks
+\raggedbottom
+\special{xdvipdfmx:config z0}
 
 \makeatother
 \title{Algebraic Topology}
+\author{Xiaolong Pan}
 \begin{document}
 \maketitle
 \tableofcontents
-\setlength\abovedisplayskip{3pt}
-\setlength\belowdisplayskip{3pt}
 
-\iffalse
-\include{chapter/general-topo}
-\include{chapter/jbq}
 
-\include{chapter/Surface}
+%\include{chapter/general-topo}
+%\include{chapter/jbq}
+%\include{chapter/Surface}
+%\include{chapter/CW}
 \include{chapter/homology}
-\include{chapter/cohomology}
-\fi\include{chapter/CW}
+%\include{chapter/cohomology}
+
 \end{document}
